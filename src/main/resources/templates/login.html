@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeLeaf.org"
+th:replace="base::Layout(~{::body})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<form action="log" method="post">
+	<h3>Login Page</h3>
+  <th:block th:if="${param.error}">
+		<p class="text-center text-success">[[${session.SPRING_SECURITY_LAST_EXCEPTION.message}]]</p>
+	</th:block>	
+	<th:block th:if="${param.logout}">
+		<p class="text-center text-danger">User Loged Out</p>
+	</th:block>	
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Name</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" name="username">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Login</button>
+</form>
+
+</body>
+</html>
